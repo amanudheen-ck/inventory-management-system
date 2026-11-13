@@ -1,0 +1,38 @@
+node_modules/
+dist/
+.env
+# ---- Secrets (never commit) ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+*.jks
+*.mobileprovision
+
+# ---- Dependencies ----
+node_modules/
+
+# ---- Build output ----
+dist/
+build/
+web-build/
+.expo/
+expo-env.d.ts
+
+# ---- Logs and caches ----
+*.log
+npm-debug.log*
+.cache/
+coverage/
+
+# ---- Archives we download ----
+*.zip
+
+# ---- Editor and OS files ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
