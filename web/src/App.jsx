@@ -5,6 +5,9 @@ import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Products from "./pages/Products.jsx";
 import Warehouses from "./pages/Warehouses.jsx";
+import Orders from "./pages/Orders.jsx";
+import Suppliers from "./pages/Suppliers.jsx";
+import Reports from "./pages/Reports.jsx";
 
 const NAV = [
   ["/", "Dashboard"],
@@ -16,7 +19,7 @@ const NAV = [
 ];
 
 function Shell() {
-  const { user, logout } = useAuth();
+  const { user, logout, can } = useAuth();
   const navigate = useNavigate();
   const [q, setQ] = useState("");
   if (!user) return <Navigate to="/login" replace />;
@@ -34,7 +37,7 @@ function Shell() {
           <div><b>Smart Inventory</b><small>WAREHOUSE OS · IN</small></div>
         </div>
         <div className="label">MAIN MANAGEMENT</div>
-        {NAV.map(([to, label]) => (
+        {NAV.filter(([to]) => can("admin", "manager") || !["/suppliers", "/reports"].includes(to)).map(([to, label]) => (
           <NavLink key={to} to={to} end={to === "/"} className={({ isActive }) => "nav" + (isActive ? " on" : "")}>{label}</NavLink>
         ))}
       </aside>
@@ -55,10 +58,6 @@ function Shell() {
   );
 }
 
-const Soon = ({ title }) => (
-  <div className="card empty"><h2>{title}</h2><p>This page is coming in the next version.</p></div>
-);
-
 export default function App() {
   return (
     <Routes>
@@ -67,9 +66,9 @@ export default function App() {
         <Route index element={<Dashboard />} />
         <Route path="products" element={<Products />} />
         <Route path="warehouses" element={<Warehouses />} />
-        <Route path="orders" element={<Soon title="Orders & Invoicing" />} />
-        <Route path="suppliers" element={<Soon title="Suppliers" />} />
-        <Route path="reports" element={<Soon title="Reports & Analytics" />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="suppliers" element={<Suppliers />} />
+        <Route path="reports" element={<Reports />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

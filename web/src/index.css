@@ -45,3 +45,12 @@ label{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:13px}
 .mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.mh h3{margin:0}.x{border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:var(--mute)}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form .full{grid-column:1/-1}.actions{display:flex;justify-content:flex-end;gap:8px}.tabs{display:flex;gap:6px}
 @media(max-width:860px){.side{display:none}.kpis{grid-template-columns:1fr 1fr}.grid21,.grid2{grid-template-columns:1fr}.page{padding:16px}header{padding:0 16px}.form{grid-template-columns:1fr}}
+.row.o{grid-template-columns:1.8fr 1.6fr 1fr 1fr 1fr 1fr}.row.s{grid-template-columns:2fr 1.4fr 1.2fr 1.6fr .9fr .9fr}
+.link{background:none;border:0;padding:0;font:inherit;font-weight:700;color:#1D4ED8;cursor:pointer;text-align:left}.link:hover{text-decoration:underline}
+.check{flex-direction:row;align-items:center;gap:8px;font-weight:500}.nopad{padding:0}.nopad label{font-size:12px}
+.cart{margin:12px 0}.crow{display:grid;grid-template-columns:1fr 80px 150px;gap:10px;align-items:center;padding:8px 0;border-top:1px solid #F1F5F9}
+.hits{border:1px solid var(--line);border-radius:10px;margin-top:8px;overflow:hidden}.hit{display:flex;justify-content:space-between;gap:10px;width:100%;padding:9px 12px;background:#fff;border:0;border-bottom:1px solid #F1F5F9;font:inherit;cursor:pointer;text-align:left}.hit:hover{background:var(--bg)}
+.totals{margin:12px 0 0 auto;width:280px;max-width:100%;display:flex;flex-direction:column;gap:6px}.totals div{display:flex;justify-content:space-between}.totals .grand{font-size:16px;font-weight:700;border-top:1px solid var(--line);padding-top:8px}
+.itable{width:100%;border-collapse:collapse;margin-top:8px}.itable th,.itable td{padding:8px 4px;border-bottom:1px solid #F1F5F9;text-align:left}.itable th{font-size:11px;letter-spacing:.04em;color:var(--mute)}.itable .right{text-align:right}
+.bars.wide .col{min-width:30px}
+@media print{body *{visibility:hidden}.invoice,.invoice *{visibility:visible}.invoice{position:absolute;left:0;top:0;width:100%}}
