@@ -8,14 +8,18 @@ import Warehouses from "./pages/Warehouses.jsx";
 import Orders from "./pages/Orders.jsx";
 import Suppliers from "./pages/Suppliers.jsx";
 import Reports from "./pages/Reports.jsx";
+import Users from "./pages/Users.jsx";
+import Customers from "./pages/Customers.jsx";
 
 const NAV = [
   ["/", "Dashboard"],
   ["/products", "Products & Stock"],
   ["/warehouses", "Warehouses"],
   ["/orders", "Orders & Invoicing"],
+  ["/customers", "Customers"],
   ["/suppliers", "Suppliers"],
   ["/reports", "Reports & Analytics"],
+  ["/users", "Users"],
 ];
 
 function Shell() {
@@ -37,7 +41,7 @@ function Shell() {
           <div><b>Smart Inventory</b><small>WAREHOUSE OS · IN</small></div>
         </div>
         <div className="label">MAIN MANAGEMENT</div>
-        {NAV.filter(([to]) => can("admin", "manager") || !["/suppliers", "/reports"].includes(to)).map(([to, label]) => (
+        {NAV.filter(([to]) => (to === "/users" ? can("admin") : can("admin", "manager") || !["/suppliers", "/reports"].includes(to))).map(([to, label]) => (
           <NavLink key={to} to={to} end={to === "/"} className={({ isActive }) => "nav" + (isActive ? " on" : "")}>{label}</NavLink>
         ))}
       </aside>
@@ -69,6 +73,8 @@ export default function App() {
         <Route path="orders" element={<Orders />} />
         <Route path="suppliers" element={<Suppliers />} />
         <Route path="reports" element={<Reports />} />
+        <Route path="users" element={<Users />} />
+        <Route path="customers" element={<Customers />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

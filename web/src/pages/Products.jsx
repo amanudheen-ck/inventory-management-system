@@ -136,6 +136,10 @@ export default function Products() {
   useEffect(() => { const t = setTimeout(load, 250); return () => clearTimeout(t); }, [load]);
 
   const saved = () => { setEdit(null); setAdj(null); load(); };
+  const remove = async (p) => {
+    if (!window.confirm(`Delete "${p.name}"? It is hidden from the list; order history is kept.`)) return;
+    try { await api.del("/products/" + p._id); load(); } catch (e) { setErr(e.message); }
+  };
   const { total, pages } = res.pagination;
 
   return (
@@ -165,7 +169,7 @@ export default function Products() {
                 <div className="right"><b className={"qty " + tone}>{p.quantity}</b><div className="muted sm">{p.unit}</div></div>
                 <span><span className={"chip " + tone}>{label}</span></span>
                 <b>{inr(p.price)}</b>
-                <div className="right"><button className="btn sm blue" onClick={() => setAdj(p)}>Adjust</button>{manage && <button className="btn sm" onClick={() => setEdit(p)}>Edit</button>}</div>
+                <div className="right"><button className="btn sm blue" onClick={() => setAdj(p)}>Adjust</button>{manage && <button className="btn sm" onClick={() => setEdit(p)}>Edit</button>}{can("admin") && <button className="btn sm" onClick={() => remove(p)}>Delete</button>}</div>
               </div>
             );
           })}
