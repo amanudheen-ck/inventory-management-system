@@ -54,3 +54,5 @@ label{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:13px}
 .itable{width:100%;border-collapse:collapse;margin-top:8px}.itable th,.itable td{padding:8px 4px;border-bottom:1px solid #F1F5F9;text-align:left}.itable th{font-size:11px;letter-spacing:.04em;color:var(--mute)}.itable .right{text-align:right}
 .bars.wide .col{min-width:30px}
 @media print{body *{visibility:hidden}.invoice,.invoice *{visibility:visible}.invoice{position:absolute;left:0;top:0;width:100%}}
+.row.u{grid-template-columns:2.2fr 1fr 1fr 1fr 1fr}
+.row.c{grid-template-columns:2fr 1.2fr 2fr 1.4fr}
