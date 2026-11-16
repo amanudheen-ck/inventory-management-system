@@ -16,7 +16,10 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "package": "com.smartinventory.app"
+      "package": "com.smartinventory.app",
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,6 +33,11 @@
           "recordAudioAndroid": false
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "21726e4b-388e-45bd-90fa-54be92165d4e"
+      }
+    }
   }
 }

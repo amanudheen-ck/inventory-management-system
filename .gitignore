@@ -1,0 +1,16 @@
+@"
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+.expo/
+.idea/
+.vscode/
+*.log
+*.zip
+*.pem
+*.key
+Thumbs.db
+"@ | Set-Content -Encoding ascii .gitignore
