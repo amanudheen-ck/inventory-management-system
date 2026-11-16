@@ -4,8 +4,8 @@ A full-stack inventory and order management system with a **REST API**, a **Reac
 
 | Item | Link |
 |---|---|
-| Live web app | **[ADD VERCEL URL]** |
-| Backend API | **[ADD RENDER URL]**/api/health |
+| Live web app | **[https://inventory-management-system-seven-omega.vercel.app/login]** |
+| Backend API | **[https://inventory-management-system-4ztn.onrender.com]**/api/health |
 | Android app | Run with Expo Go (see [Mobile setup](#3-mobile-app-android)) |
 | API documentation | [documentation/API-Documentation.md](documentation/API-Documentation.md) |
 | ER diagram | [documentation/ER-Diagram.md](documentation/ER-Diagram.md) |
